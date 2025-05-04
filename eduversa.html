@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub - Your Ultimate Notes Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6b7280, #1e3a8a);
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .search-bar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center text-white">
+    <header class="w-full max-w-4xl mx-auto text-center py-10">
+        <h1 class="text-5xl font-bold glow mb-4">StudyHub</h1>
+        <p class="text-lg">Discover the best free study notes from top websites, curated just for you!</p>
+    </header>
+
+    <main class="w-full max-w-4xl mx-auto p-6">
+        <!-- Search Bar -->
+        <div class="search-bar rounded-lg p-4 mb-8 flex items-center">
+            <input type="text" id="searchInput" placeholder="Search for topics or subjects..." class="w-full bg-transparent text-white placeholder-gray-300 focus:outline-none">
+            <button onclick="searchNotes()" class="ml-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Search</button>
+        </div>
+
+        <!-- Notes Resources -->
+        <section id="resources" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Resource Cards -->
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">Khan Academy</h2>
+                <p class="text-gray-600 mb-4">Free video lessons and practice exercises on various subjects.</p>
+                <a href="https://www.khanacademy.org/" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">Coursera Notes</h2>
+                <p class="text-gray-600 mb-4">Access free course materials from top universities.</p>
+                <a href="https://www.coursera.org/" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">Quizlet</h2>
+                <p class="text-gray-600 mb-4">Flashcards and study sets to master any topic.</p>
+                <a href="https://quizlet.com/" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">edX</h2>
+                <p class="text-gray-600 mb-4">Free courses and notes from world-class institutions.</p>
+                <a href="https://www.edx.org/" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">SparkNotes</h2>
+                <p class="text-gray-600 mb-4">Literature guides and study resources for students.</p>
+                <a href="https://www.sparknotes.com/" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">OpenStax</h2>
+                <p class="text-gray-600 mb-4">Free textbooks and study materials for college students.</p>
+                <a href="https://openstax.org/" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">BBC Bitesize</h2>
+                <p class="text-gray-600 mb-4">Free study resources and revision guides for various subjects.</p>
+                <a href="https://www.bbc.co.uk/bitesize" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">MIT OpenCourseWare</h2>
+                <p class="text-gray-600 mb-4">Free lecture notes and course materials from MIT.</p>
+                <a href="https://ocw.mit.edu/" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+            <div class="card bg-white text-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-2">Study.com</h2>
+                <p class="text-gray-600 mb-4">Free study guides and resources for a wide range of topics.</p>
+                <a href="https://study.com/" target="_blank" class="text-indigo-600 hover:underline">Visit Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full text-center py-6">
+        <p class="text-gray-300">Made with ❤️ for students | <a href="#" class="text-indigo-400 hover:underline">Suggest a Resource</a></p>
+    </footer>
+
+    <script>
+        function searchNotes() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const title = card.querySelector('h2').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                if (title.includes(query) || description.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Add bounce animation to header on load
+        window.onload = () => {
+            document.querySelector('h1').classList.add('animate-bounce-slow');
+        };
+    </script>
+</body>
+</html>
